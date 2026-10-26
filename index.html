@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="/assets/img/favicon.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css?v=202610262141">
+<meta name="theme-color" content="#0f3f2b">
+<title>Estudio Brady · Contadores Públicos en Luján</title>
+<meta name="description" content="Asesoramiento contable, impositivo y laboral para monotributistas, profesionales y PyMEs.">
+</head>
+<body>
+<div id="chrome-top"></div>
+
+<main>
+  <!-- PORTADA -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow" id="hero-eyebrow">Estudio contable</span>
+        <h1 class="h-xl" id="hero-title"><span class="line"><span>&nbsp;</span></span></h1>
+        <p class="lead" id="hero-sub"></p>
+        <div class="hero-actions">
+          <a class="btn" href="#contacto"><span id="hero-cta1">Pedir un turno</span><span class="arr" data-ic="arrowUR"></span></a>
+          <a class="btn ghost" href="#servicios"><span id="hero-cta2">Ver servicios</span><span class="arr" data-ic="arrow"></span></a>
+        </div>
+        <div class="hero-meta" id="hero-meta"></div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-photo" id="hero-photo" data-parallax="0.04"></div>
+        <div class="ledger-card" data-parallax="-0.05">
+          <div class="lc-top"><span>Trayectoria</span><span id="lc-year"></span></div>
+          <div class="lc-val"><span class="num" id="lc-val" data-to="0">0</span> años</div>
+          <span class="lc-delta" id="lc-since"></span>
+          <svg class="chart" viewBox="0 0 300 84" preserveAspectRatio="none">
+            <defs><linearGradient id="gradA" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#1f7a4c" stop-opacity=".22"/><stop offset="1" stop-color="#1f7a4c" stop-opacity="0"/></linearGradient></defs>
+            <path class="area" d="M0 70 L30 62 L60 66 L90 50 L120 54 L150 40 L180 44 L210 28 L240 32 L270 16 L300 10 L300 84 L0 84Z"/>
+            <path class="ln" d="M0 70 L30 62 L60 66 L90 50 L120 54 L150 40 L180 44 L210 28 L240 32 L270 16 L300 10"/>
+            <circle class="dot" cx="300" cy="10" r="4"/>
+          </svg>
+          <div class="lc-rows" id="lc-rows"></div>
+        </div>
+        <div class="float-chip c2"><span class="ic" data-ic="users"></span><span><b>Equipo interdisciplinario</b><small>Contadores y abogados</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EL ESTUDIO -->
+  <section class="section bg-mint" id="estudio">
+    <div class="wrap about-grid">
+      <div class="about-media clip-up" id="about-media"></div>
+      <div class="about-text">
+        <span class="eyebrow">§01 · El estudio</span>
+        <h2 class="h-lg" data-split id="about-title" style="margin:18px 0 26px"></h2>
+        <div id="about-text" data-reveal></div>
+        <ul class="checks" id="about-points"></ul>
+      </div>
+    </div>
+    <div class="wrap" id="team-wrap" style="margin-top:clamp(70px,9vw,120px)">
+      <div class="sec-head">
+        <div class="idx"><b>§01.1</b> — Equipo</div>
+        <div><h2 class="h-lg" data-split>Las personas detrás <em>del estudio.</em></h2></div>
+      </div>
+      <div class="team-list" id="team"></div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="section" id="servicios">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="idx"><b>§02</b> — Servicios</div>
+        <div>
+          <h2 class="h-lg" data-split>Asesoramiento integral <em>para empresas y particulares.</em></h2>
+          <p class="lead" data-reveal>Elegí un área para ver qué incluye. Para analizar tu caso, pedí un turno y lo vemos juntos.</p>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="svc-list" id="svc-list"></div>
+        <div class="svc-panel"><div class="svc-card" id="svc-card"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORO -->
+  <section class="section bg-mint" id="foro">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div class="idx"><b>§03</b> — Foro</div>
+        <div>
+          <h2 class="h-lg" data-split>Noticias financieras <em>explicadas en criollo.</em></h2>
+          <p class="lead" data-reveal>Publicamos lo que cambia en impuestos, economía y empleo, y respondemos las dudas en los comentarios.</p>
+        </div>
+        <a class="btn ghost" href="/foro" data-reveal>Ir al foro <span class="arr" data-ic="arrow"></span></a>
+      </div>
+      <div class="posts" id="home-posts"></div>
+    </div>
+  </section>
+
+  <!-- UBICACIÓN -->
+  <section class="section tight" id="ubicacion">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="idx"><b>§04</b> — Ubicación</div>
+        <div><h2 class="h-lg" data-split>Te esperamos <em>en Luján.</em></h2></div>
+      </div>
+      <div class="loc-grid">
+        <div class="map clip-up" id="map"></div>
+        <div class="loc-side">
+          <div class="info-card" data-reveal><h3>Horarios <span class="open-badge" id="open-badge"></span></h3><div class="hours" id="hours"></div></div>
+          <div class="info-card" data-reveal style="--d:.1s"><h3>Contacto directo</h3><div class="contact-lines" id="contact-lines"></div></div>
+          <div class="info-card" data-reveal style="--d:.2s"><h3>Cómo llegar</h3><p id="howto" style="margin:0;color:var(--ink-2)"></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section bg-forest" id="contacto">
+    <div class="wrap contact-wrap">
+      <div>
+        <span class="eyebrow">§05 · Contacto</span>
+        <h2 class="h-lg" data-split style="margin:18px 0 22px">Contanos tu caso, <em>te respondemos a la brevedad.</em></h2>
+        <p class="lead" data-reveal>Dejanos tus datos y el tema de la consulta. Te contactamos para coordinar un turno en el estudio.</p>
+        <div class="contact-direct" id="contact-direct" data-reveal></div>
+      </div>
+      <form class="form" id="contact-form" data-reveal novalidate>
+        <div class="field"><input id="cf-name" name="name" placeholder=" " required autocomplete="name"><label for="cf-name">Nombre y apellido</label></div>
+        <div class="field"><input id="cf-phone" name="phone" placeholder=" " autocomplete="tel"><label for="cf-phone">Teléfono</label></div>
+        <div class="field"><input id="cf-email" name="email" type="email" placeholder=" " autocomplete="email"><label for="cf-email">Email</label></div>
+        <div class="field"><select id="cf-topic" name="topic"></select><label for="cf-topic">Tema</label></div>
+        <div class="field full"><textarea id="cf-msg" name="message" placeholder=" " required></textarea><label for="cf-msg">Tu consulta</label></div>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="full"><button class="btn light" type="submit">Enviar consulta <span class="arr" data-ic="arrowUR"></span></button></div>
+        <p class="form-msg" id="cf-msg-out" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<div id="chrome-bottom"></div>
+<noscript><p style="padding:20px;text-align:center">Activá JavaScript para ver el sitio completo.</p></noscript>
+<script type="module" src="/assets/home.js?v=202610262141"></script>
+</body>
+</html>

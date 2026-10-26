@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="/assets/img/favicon.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css?v=202610262141">
+<meta name="theme-color" content="#0f3f2b">
+<title>Panel de administración</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/assets/admin.css?v=202610262141">
+</head>
+<body class="adm">
+
+<!-- LOGIN -->
+<div id="login" class="login" hidden>
+  <form class="login-card" id="login-form">
+    <span class="brand-mark"><img src="/assets/img/emblema-blanco.png" alt=""></span>
+    <h1>Panel del estudio</h1>
+    <p>Ingresá la contraseña para administrar el sitio, el foro y los avisos.</p>
+    <label class="in"><span>Contraseña</span><input type="password" name="password" autocomplete="current-password" required autofocus></label>
+    <button class="btn" type="submit">Ingresar <span class="arr">→</span></button>
+    <p class="err" id="login-err"></p>
+    <a href="/" class="back">← Volver al sitio</a>
+  </form>
+</div>
+
+<!-- APP -->
+<div id="app" class="app" hidden>
+  <aside class="side">
+    <a href="/" class="brand" target="_blank" rel="noopener">
+      <span class="brand-mark"><img src="/assets/img/emblema-blanco.png" alt=""></span>
+      <span><span class="brand-name" id="side-name">Estudio</span><span class="brand-sub">Panel</span></span>
+    </a>
+    <nav class="side-nav" id="side-nav">
+      <button data-view="dash">Resumen</button>
+      <button data-view="posts">Foro <i class="badge" id="b-posts"></i></button>
+      <button data-view="moderation">Moderación <i class="badge warn" id="b-mod"></i></button>
+      <button data-view="notices">Avisos</button>
+      <button data-view="messages">Consultas <i class="badge warn" id="b-msg"></i></button>
+      <span class="side-sep">Contenido del sitio</span>
+      <button data-view="site:brand">Marca y SEO</button>
+      <button data-view="site:hero">Portada</button>
+      <button data-view="site:about">El estudio</button>
+      <button data-view="site:services">Servicios</button>
+      <button data-view="site:team">Equipo</button>
+      <button data-view="site:location">Ubicación y horarios</button>
+      <button data-view="site:contact">Contacto y redes</button>
+    </nav>
+    <div class="side-foot">
+      <a href="/" target="_blank" rel="noopener">Ver sitio ↗</a>
+      <button id="logout">Cerrar sesión</button>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-btn" id="menu-btn" aria-label="Menú">☰</button>
+      <h1 id="view-title">Resumen</h1>
+      <div class="topbar-actions" id="topbar-actions"></div>
+    </header>
+    <div class="view" id="view"></div>
+  </main>
+</div>
+
+<div class="toast" role="status" aria-live="polite"></div>
+<script type="module" src="/assets/admin.js?v=202610262141"></script>
+</body>
+</html>
