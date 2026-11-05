@@ -5,13 +5,14 @@ import {
 
 const nl2p = (t) => String(t || "").split(/\n{2,}/).map((p) => `<p>${esc(p)}</p>`).join("");
 
-// Panel del hero: el logo del estudio sobre su verde, con renglones de libro contable.
+// Panel del hero: el logo del estudio sobre el negro de marca, con el emblema de fondo.
 function heroArt() {
   return `<div class="hero-logo">
     <svg class="hero-lines" viewBox="0 0 400 460" preserveAspectRatio="none" aria-hidden="true">
-      ${Array.from({ length: 16 }, (_, i) => `<line x1="0" x2="400" y1="${30 + i * 28}" y2="${30 + i * 28}" stroke="#ffffff" stroke-opacity=".07"/>`).join("")}
+      ${Array.from({ length: 16 }, (_, i) => `<line x1="0" x2="400" y1="${30 + i * 28}" y2="${30 + i * 28}" stroke="#ffffff" stroke-opacity=".05"/>`).join("")}
     </svg>
-    <img src="/assets/img/logo-blanco.png" alt="Estudio Brady · Contadores Públicos">
+    <img class="hero-emblem-bg" src="/assets/img/emblema-verde.svg" alt="">
+    <img class="hero-logo-main" src="/assets/img/logo-vertical-blanco-verde.svg" alt="Estudio Brady · Contadores Públicos">
   </div>`;
 }
 

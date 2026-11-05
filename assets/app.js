@@ -104,12 +104,12 @@ export const icon = (name, size = 20, sw = 1.6) =>
 
 // ---------- Portadas generadas para publicaciones sin imagen ----------
 const CAT_TONES = {
-  Impuestos: ["#0f3f2b", "#a9cdb6"],
-  Monotributo: ["#1f7a4c", "#d7efe0"],
-  Laboral: ["#143a3a", "#9fd0c9"],
-  "Economía": ["#2b3d1f", "#c9dca5"],
-  Inversiones: ["#0d2b24", "#7fc2a0"],
-  "Novedades del estudio": ["#3a4a3f", "#e3ecd9"],
+  Impuestos: ["#031407", "#14ac4f"],
+  Monotributo: ["#14ac4f", "#031407"],
+  Laboral: ["#0a2213", "#6fd394"],
+  "Economía": ["#e6f6ec", "#0b8a3d"],
+  Inversiones: ["#031407", "#6fd394"],
+  "Novedades del estudio": ["#14ac4f", "#ffffff"],
 };
 function hash(s) { let h = 0; for (const c of String(s)) h = (h * 31 + c.charCodeAt(0)) | 0; return Math.abs(h); }
 export function genCover(post) {
@@ -130,7 +130,7 @@ export function genCover(post) {
     <line x1="64" x2="64" y1="0" y2="275" stroke="${fg}" stroke-opacity=".14"/>
     ${bars}
     <polyline points="${pts}" fill="none" stroke="${fg}" stroke-width="2.4" stroke-linejoin="round" opacity=".85"/>
-    <text x="22" y="250" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="120" fill="${fg}" opacity=".16">${esc(glyph)}</text>
+    <text x="22" y="250" font-family="Albert Sans, system-ui, sans-serif" font-weight="800" font-size="120" fill="${fg}" opacity=".16">${esc(glyph)}</text>
   </svg></span>`;
 }
 export const coverHTML = (p) => (p.cover ? `<img src="${esc(p.cover)}" alt="" loading="lazy">` : genCover(p));
@@ -190,8 +190,8 @@ export function renderChrome({ site, notices }, active = "") {
     <header class="site-header" id="top">
       <div class="wrap nav">
         <a href="/" class="brand" aria-label="${esc(b.name)} — inicio">
-          <span class="brand-mark"><img src="/assets/img/emblema-blanco.png" alt=""></span>
-          <span><span class="brand-name">${esc(b.name)}</span><span class="brand-sub">${esc(b.descriptor)}</span></span>
+          <img class="brand-logo" src="/assets/img/logo-horizontal-color.svg" alt="${esc(b.name)}" width="180" height="33">
+          ${b.descriptor ? `<span class="brand-sub">${esc(b.descriptor)}</span>` : ""}
         </a>
         <nav class="menu" aria-label="Principal">
           ${links.map(([h, t, k]) => `<a href="${h}" class="${k === active ? "active" : ""}">${t}</a>`).join("")}
@@ -208,13 +208,12 @@ export function renderChrome({ site, notices }, active = "") {
     </div>`;
 
   const year = new Date().getFullYear();
-  const nameParts = b.name.split(" ");
   const footer = `
     <footer class="site-footer">
       <div class="wrap">
         <div class="foot-grid">
           <div>
-            <a href="/" class="brand"><span class="brand-mark"><img src="/assets/img/emblema-blanco.png" alt=""></span><span><span class="brand-name">${esc(b.name)}</span><span class="brand-sub">${esc(b.descriptor)}</span></span></a>
+            <a href="/" class="brand"><img class="brand-logo" src="/assets/img/logo-horizontal-color.svg" alt="${esc(b.name)}" width="180" height="33">${b.descriptor ? `<span class="brand-sub">${esc(b.descriptor)}</span>` : ""}</a>
             <p class="about">${esc(site.seo?.description || "")}</p>
           </div>
           <div><h4>Sitio</h4><ul>${links.map(([h, t]) => `<li><a href="${h}">${t}</a></li>`).join("")}</ul></div>
@@ -229,7 +228,7 @@ export function renderChrome({ site, notices }, active = "") {
           </ul></div>
           <div><h4>Oficina</h4><ul><li>${esc(site.location.address)}</li><li>${esc(site.location.city)}</li>${(site.location.hours || []).map((h) => `<li style="color:var(--muted)">${esc(h.days)} · ${esc(h.time)}</li>`).join("")}</ul></div>
         </div>
-        <div class="wordmark" aria-hidden="true"><span data-reveal>${esc(nameParts[0])}</span> <span data-reveal style="--d:.12s"><em>${esc(nameParts.slice(1).join(" "))}</em></span></div>
+        <div class="wordmark" aria-hidden="true"><img data-reveal src="/assets/img/logo-horizontal-color.svg" alt=""></div>
         <div class="foot-bottom">
           <span>© ${year} ${esc(b.name)}. Todos los derechos reservados.</span>
           <span>La información publicada es de carácter general y no reemplaza el asesoramiento profesional.</span>

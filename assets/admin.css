@@ -1,12 +1,12 @@
 /* Panel de administración */
-body.adm { background: #f3f6f3; font-size: 15px; }
+body.adm { background: #f4f8f5; font-size: 15px; }
 [hidden] { display: none !important; }
 
 .login { min-height: 100vh; display: grid; place-items: center; padding: 20px; background:
-  repeating-linear-gradient(to bottom, transparent 0 35px, rgba(31, 122, 76, .07) 35px 36px), var(--paper); }
+  repeating-linear-gradient(to bottom, transparent 0 35px, rgba(20, 172, 79, .07) 35px 36px), var(--paper); }
 .login-card { width: min(400px, 100%); background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 36px; box-shadow: var(--shadow-lg); display: grid; gap: 14px; animation: swapIn .8s var(--ease-out); }
 .login-card .brand-mark { margin-bottom: 6px; }
-.login-card h1 { font-family: var(--serif); font-size: 32px; letter-spacing: -.02em; }
+.login-card h1 { font-family: var(--serif); font-weight: 700; font-size: 32px; letter-spacing: -.02em; }
 .login-card p { color: var(--muted); margin: 0; }
 .login-card .btn { justify-content: space-between; margin-top: 4px; }
 .login-card .err { color: var(--red); min-height: 20px; font-size: 14px; }
@@ -31,8 +31,8 @@ body.adm { background: #f3f6f3; font-size: 15px; }
 .side-foot a:hover, .side-foot button:hover { color: #fff; }
 
 .main { min-width: 0; }
-.topbar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 16px; padding: 16px 32px; background: rgba(243, 246, 243, .9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); min-height: 72px; }
-.topbar h1 { font-family: var(--serif); font-size: 26px; letter-spacing: -.02em; flex: 1; }
+.topbar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 16px; padding: 16px 32px; background: rgba(255, 255, 255, .9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); min-height: 72px; }
+.topbar h1 { font-family: var(--serif); font-weight: 700; font-size: 26px; letter-spacing: -.02em; flex: 1; }
 .topbar-actions { display: flex; gap: 10px; align-items: center; }
 .menu-btn { display: none; font-size: 20px; width: 40px; height: 40px; border-radius: 10px; box-shadow: inset 0 0 0 1px var(--line-2); }
 .view { padding: 28px 32px 80px; max-width: 1100px; }
@@ -58,7 +58,7 @@ body.adm { background: #f3f6f3; font-size: 15px; }
 
 /* Tarjetas y formularios */
 .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 22px; margin-bottom: 16px; }
-.card h2 { font-family: var(--serif); font-size: 22px; margin-bottom: 4px; letter-spacing: -.01em; }
+.card h2 { font-family: var(--serif); font-weight: 700; font-size: 22px; margin-bottom: 4px; letter-spacing: -.01em; }
 .card > .hint { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
@@ -70,7 +70,7 @@ body.adm { background: #f3f6f3; font-size: 15px; }
   width: 100%; padding: 11px 13px; border-radius: 10px; border: 1px solid var(--line-2); background: #fff; font-size: 14.5px; font-weight: 400; color: var(--ink); outline: none; transition: border-color .2s, box-shadow .2s;
 }
 .in textarea { min-height: 96px; resize: vertical; line-height: 1.5; }
-.in input:focus, .in textarea:focus, .in select:focus { border-color: var(--green); box-shadow: 0 0 0 4px rgba(31, 122, 76, .1); }
+.in input:focus, .in textarea:focus, .in select:focus { border-color: var(--green); box-shadow: 0 0 0 4px rgba(20, 172, 79, .1); }
 .check { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; cursor: pointer; user-select: none; }
 .check input { appearance: none; -webkit-appearance: none; width: 38px; height: 22px; border-radius: 999px; background: var(--line-2); position: relative; cursor: pointer; transition: background .25s; flex: none; }
 .check input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform .3s var(--ease-out); box-shadow: 0 1px 2px rgba(0,0,0,.2); }
@@ -95,7 +95,7 @@ body.adm { background: #f3f6f3; font-size: 15px; }
 .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 20px; }
 .kpi { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; cursor: pointer; transition: transform .3s var(--ease-out), box-shadow .3s; }
 .kpi:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-.kpi .v { font-family: var(--serif); font-size: 42px; letter-spacing: -.03em; line-height: 1; color: var(--forest); }
+.kpi .v { font-family: var(--serif); font-weight: 700; font-size: 42px; letter-spacing: -.03em; line-height: 1; color: var(--forest); }
 .kpi .l { font-size: 13.5px; color: var(--muted); margin-top: 8px; }
 .kpi.warn .v { color: var(--amber); }
 @media (max-width: 800px) { .kpis { grid-template-columns: 1fr 1fr; } }
@@ -138,9 +138,15 @@ body.adm { background: #f3f6f3; font-size: 15px; }
 .cmt textarea { width: 100%; min-height: 70px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line-2); margin-bottom: 8px; font-size: 14px; }
 .cmt.unread { border-left: 3px solid var(--amber); }
 .empty { text-align: center; padding: 60px 20px; color: var(--muted); background: #fff; border: 1px dashed var(--line-2); border-radius: 16px; }
-.empty b { display: block; font-family: var(--serif); font-size: 22px; color: var(--ink); font-weight: 400; margin-bottom: 6px; }
+.empty b { display: block; font-family: var(--serif); font-size: 22px; color: var(--ink); font-weight: 700; margin-bottom: 6px; }
 .adm .btn.sm { padding: 8px 14px; font-size: 13.5px; }
 .img-field { flex-wrap: wrap; }
 .img-field .col { min-width: 180px; }
 .img-field input:not([type=file]) { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line-2); background: #fff; font-size: 14px; outline: none; }
-.img-field input:not([type=file]):focus { border-color: var(--green); box-shadow: 0 0 0 4px rgba(31, 122, 76, .1); }
+.img-field input:not([type=file]):focus { border-color: var(--green); box-shadow: 0 0 0 4px rgba(20, 172, 79, .1); }
+
+/* Logo (manual de marca 2026) */
+.login-logo { height: 38px; width: auto; margin-bottom: 8px; }
+.side .brand { display: grid; gap: 8px; padding: 4px 8px 0; }
+.side .brand-logo { height: 26px; width: auto; }
+.side .brand-sub { padding-left: 0; border: 0; color: var(--sage); font-size: 10.5px; }
