@@ -51,3 +51,4 @@ export function isAdmin(req) {
 export function requireAdmin(req) {
   if (!isAdmin(req)) throw httpError(401, "Sesión vencida. Volvé a ingresar.");
 }
+

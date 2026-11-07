@@ -98,9 +98,9 @@ export const defaultSite = () => ({
     phone2: "02323 42-2969",
     whatsapp: "542323430436",
     email: "",
-    instagram: "",
+    instagram: "https://www.instagram.com/estudio_brady/",
     facebook: "https://www.facebook.com/estudiobrady/",
-    linkedin: "",
+    linkedin: "https://ar.linkedin.com/company/estudio-brady",
   },
 });
 

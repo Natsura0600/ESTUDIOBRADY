@@ -150,3 +150,5 @@ body.adm { background: #f4f8f5; font-size: 15px; }
 .side .brand { display: grid; gap: 8px; padding: 4px 8px 0; }
 .side .brand-logo { height: 26px; width: auto; }
 .side .brand-sub { padding-left: 0; border: 0; color: var(--sage); font-size: 10.5px; }
+
+.side .brand { justify-self: stretch; align-items: start; text-align: left; }

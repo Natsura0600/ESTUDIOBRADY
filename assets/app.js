@@ -157,9 +157,18 @@ export function loadSite() {
 }
 
 // ---------- Header, ticker y footer ----------
+const SOCIAL = {
+  instagram: "https://www.instagram.com/estudio_brady/",
+  linkedin: "https://ar.linkedin.com/company/estudio-brady",
+};
 export function renderChrome({ site, notices }, active = "") {
   const b = site.brand;
   const c = site.contact;
+  // Redes del estudio (si en el panel quedan vacías, se usan las oficiales).
+  const ig = c.instagram || SOCIAL.instagram;
+  const li = c.linkedin || SOCIAL.linkedin;
+  const socials = [[ig, "ig", "Instagram"], [li, "in", "LinkedIn"], [c.facebook, "fb", "Facebook"]].filter(([u]) => u);
+  const socialLinks = (size) => socials.map(([u, ic, name]) => `<a class="soc" href="${esc(u)}" target="_blank" rel="noopener" aria-label="${name} de ${esc(b.name)}" title="${name}">${icon(ic, size)}</a>`).join("");
   document.title = document.title.includes("|") ? document.title.split("|")[0] + "| " + b.name : site.seo?.title || b.name;
   const metaDesc = $('meta[name="description"]');
   if (metaDesc && site.seo?.description && !metaDesc.dataset.fixed) metaDesc.content = site.seo.description;
@@ -185,26 +194,40 @@ export function renderChrome({ site, notices }, active = "") {
       </div>`
     : "";
 
+  const loc = site.location || {};
   const header = `
     ${ticker}
     <header class="site-header" id="top">
       <div class="wrap nav">
+        <div class="nav-side">
+          <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-drawer"><span></span><span></span><span></span></button>
+          <span class="burger-label" aria-hidden="true">Menú</span>
+        </div>
         <a href="/" class="brand" aria-label="${esc(b.name)} — inicio">
-          <img class="brand-logo" src="/assets/img/logo-horizontal-color.svg" alt="${esc(b.name)}" width="180" height="33">
+          <img class="brand-logo on-light" src="/assets/img/logo-horizontal-color.svg" alt="${esc(b.name)}" width="180" height="33">
+          <img class="brand-logo on-dark" src="/assets/img/logo-horizontal-blanco-verde.svg" alt="" width="180" height="33">
           ${b.descriptor ? `<span class="brand-sub">${esc(b.descriptor)}</span>` : ""}
         </a>
-        <nav class="menu" aria-label="Principal">
-          ${links.map(([h, t, k]) => `<a href="${h}" class="${k === active ? "active" : ""}">${t}</a>`).join("")}
-        </nav>
-        <div class="nav-cta">
-          <a class="btn sm" href="/#contacto">Pedir un turno <span class="arr">${icon("arrowUR", 14)}</span></a>
-          <button class="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button>
-        </div>
+        <div class="nav-side nav-social">${socialLinks(19)}</div>
       </div>
     </header>
-    <div class="drawer" aria-hidden="true">
-      ${links.map(([h, t], i) => `<a href="${h}">${t}<small>0${i + 1}</small></a>`).join("")}
-      <a class="btn" href="/#contacto" style="font-family:var(--sans);font-size:15px;opacity:1;transform:none;border:0">Pedir un turno <span class="arr">${icon("arrowUR", 14)}</span></a>
+    <div class="drawer" id="site-drawer" aria-hidden="true">
+      <div class="wrap drawer-grid">
+        <nav class="drawer-nav" aria-label="Principal">
+          ${links.map(([h, t, k], i) => `<a href="${h}" class="${k === active ? "active" : ""}"><small>0${i + 1}</small><span>${t}</span></a>`).join("")}
+        </nav>
+        <aside class="drawer-side">
+          <a class="btn" href="/#contacto">Pedir un turno <span class="arr">${icon("arrowUR", 14)}</span></a>
+          <div class="drawer-info">
+            ${c.phone ? `<a href="tel:${esc(c.phone.replace(/[^\d+]/g, ""))}">${icon("phone", 17)}${esc(c.phone)}</a>` : ""}
+            ${c.whatsapp ? `<a href="https://wa.me/${esc(c.whatsapp)}" target="_blank" rel="noopener">${icon("wa", 17)}WhatsApp</a>` : ""}
+            ${c.email ? `<a href="mailto:${esc(c.email)}">${icon("mail", 17)}${esc(c.email)}</a>` : ""}
+            ${loc.address ? `<span>${icon("pin", 17)}${esc(loc.address)}</span>` : ""}
+            ${(loc.hours || []).slice(0, 2).map((h) => `<span>${icon("clock", 17)}${esc(h.days)} · ${esc(h.time)}</span>`).join("")}
+          </div>
+          <div class="drawer-social">${socials.map(([u, ic, name]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${icon(ic, 18)}<span>${name}</span></a>`).join("")}</div>
+        </aside>
+      </div>
     </div>`;
 
   const year = new Date().getFullYear();
@@ -222,9 +245,9 @@ export function renderChrome({ site, notices }, active = "") {
             ${c.phone2 ? `<li><a href="tel:${esc(c.phone2.replace(/[^\d+]/g, ""))}">${esc(c.phone2)}</a></li>` : ""}
             ${c.email ? `<li><a href="mailto:${esc(c.email)}">${esc(c.email)}</a></li>` : ""}
             ${c.whatsapp ? `<li><a href="https://wa.me/${esc(c.whatsapp)}" target="_blank" rel="noopener">WhatsApp</a></li>` : ""}
-            ${c.instagram ? `<li><a href="${esc(c.instagram)}" target="_blank" rel="noopener">Instagram</a></li>` : ""}
+            ${ig ? `<li><a href="${esc(ig)}" target="_blank" rel="noopener">Instagram</a></li>` : ""}
             ${c.facebook ? `<li><a href="${esc(c.facebook)}" target="_blank" rel="noopener">Facebook</a></li>` : ""}
-            ${c.linkedin ? `<li><a href="${esc(c.linkedin)}" target="_blank" rel="noopener">LinkedIn</a></li>` : ""}
+            ${li ? `<li><a href="${esc(li)}" target="_blank" rel="noopener">LinkedIn</a></li>` : ""}
           </ul></div>
           <div><h4>Oficina</h4><ul><li>${esc(site.location.address)}</li><li>${esc(site.location.city)}</li>${(site.location.hours || []).map((h) => `<li style="color:var(--muted)">${esc(h.days)} · ${esc(h.time)}</li>`).join("")}</ul></div>
         </div>
@@ -251,7 +274,15 @@ function bindChrome() {
     burger.setAttribute("aria-expanded", open);
     $(".drawer").setAttribute("aria-hidden", !open);
   });
-  $$(".drawer a").forEach((a) => a.addEventListener("click", () => document.body.classList.remove("nav-open")));
+  const close = () => {
+    document.body.classList.remove("nav-open");
+    burger?.setAttribute("aria-expanded", false);
+    burger?.setAttribute("aria-label", "Abrir menú");
+    $(".drawer")?.setAttribute("aria-hidden", true);
+  };
+  burger?.addEventListener("click", () => burger.setAttribute("aria-label", document.body.classList.contains("nav-open") ? "Cerrar menú" : "Abrir menú"));
+  $$(".drawer a").forEach((a) => a.addEventListener("click", close));
+  addEventListener("keydown", (e) => { if (e.key === "Escape" && document.body.classList.contains("nav-open")) { close(); burger?.focus(); } });
 
   let last = 0;
   const wa = $(".wa-float");
